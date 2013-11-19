@@ -1,4 +1,4 @@
-statin
+cv risk
 ======
 
 When controversy about the American Medical Association's cardiovascular risk calculator [made the news](http://www.nytimes.com/2013/11/18/health/risk-calculator-for-cholesterol-appears-flawed.html) in mid-November 2013, I decided to check out the "online" calculator for myself. I was surprised to learn that the "online" calculator is simply an Excel file that is available online for [download](http://my.americanheart.org/professional/StatementsGuidelines/PreventionGuidelines/Prevention-Guidelines_UCM_457698_SubHomePage.jsp).
