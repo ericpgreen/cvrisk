@@ -213,12 +213,12 @@ library(ggplot2)
       dat[4,2] <- "ascvd.life"
       dat[4,3] <- ascvd.life
       names(dat) <- c("optimal", "measure", "value")
-    
+      dat
       })
 
   # plot ----
     output$riskPlot <- renderPlot( {
-      plotdf <- Data()$dat
+      dat <- Data()
       p <- ggplot(dat, aes(x=measure, y=value, colour=factor(optimal))) +
                   geom_point(size=5) +
                   coord_flip() +
