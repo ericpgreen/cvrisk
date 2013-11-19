@@ -12,6 +12,7 @@
 
 library(shiny)
 library(ggplot2)
+library(markdown)
 
 # Define server logic required to summarize and view the selected dataset
   shinyServer(function(input, output) {
@@ -201,16 +202,16 @@ library(ggplot2)
       dat <- NULL
       dat <- as.data.frame(dat)
       dat[1,1] <- 1
-      dat[1,2] <- "ascvd.10"
+      dat[1,2] <- "10-year risk"
       dat[1,3] <- ascvd.10.o.p
       dat[2,1] <- 0
-      dat[2,2] <- "ascvd.10"
+      dat[2,2] <- "10-year risk"
       dat[2,3] <- ascvd.10.p
       dat[3,1] <- 1
-      dat[3,2] <- "ascvd.life"
+      dat[3,2] <- "Lifetime risk"
       dat[3,3] <- ascvd.life.o
       dat[4,1] <- 0
-      dat[4,2] <- "ascvd.life"
+      dat[4,2] <- "Lifetime risk"
       dat[4,3] <- ascvd.life
       names(dat) <- c("optimal", "measure", "value")
       dat
@@ -220,13 +221,30 @@ library(ggplot2)
     output$riskPlot <- renderPlot( {
       dat <- Data()
       p <- ggplot(dat, aes(x=measure, y=value, colour=factor(optimal))) +
-                  geom_point(size=5) +
+                  theme_bw() +
+                  geom_point(size=8) +
+                  geom_rect(data=NULL,aes(xmin=-Inf,xmax=Inf,ymin=7.5,ymax=Inf),
+                  fill="pink", alpha = 0.05, linetype=0) +
                   coord_flip() +
                   ylab("Risk (%)") +
-                  scale_colour_manual(values=c("red", "green"),
+                  scale_colour_manual(values=c("red", "darkgrey"),
                                     name="Comparison",
                                     breaks=c(0,1),
-                                    labels=c("You", "The ideal you"))
+                                    labels=c("You", "The ideal you")) +
+                  scale_y_continuous(limits=c(0, 80)) +
+                  theme(axis.title.x = element_text(face="bold", size=20)) +
+                  theme(axis.title.y = element_text(face="bold", size=20)) +
+                  theme(axis.text.x = element_text(face="bold", size=15)) +
+                  theme(axis.text.y = element_text(face="bold", size=15)) +
+                  labs(title = "CV Risk Calculator") +
+                  theme(plot.title = element_text(size = rel(2)))
+                 
+                 
       print(p)
     })
+    
+    output$readme <- renderUI({
+      includeMarkdown("README.md")
+    })
+
   })

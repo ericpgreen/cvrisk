@@ -11,6 +11,7 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 library(shiny)
+library(markdown)
 
 # Define UI
   shinyUI(pageWithSidebar(
@@ -53,11 +54,14 @@ library(shiny)
         
       # smoker
         selectInput("smoker", "Smoker:", 
-                    choices = c("Yes", "No")),
+                    choices = c("Yes", "No"))
     ),
     
     # plot
       mainPanel(
-        plotOutput("riskPlot")
+        tabsetPanel(
+          tabPanel("Plot", plotOutput("riskPlot")),
+          tabPanel("About", uiOutput("readme"))
+        )
       )
   ))
