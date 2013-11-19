@@ -219,9 +219,14 @@ library(ggplot2)
   # plot ----
     output$riskPlot <- renderPlot( {
       plotdf <- Data()$dat
-      p <- ggplot(plotdf, aes(x=measure, y=value, colour=optimal)) +
-                  geom_point(aes(color=measure), size=3) +
-                  coord_flip()
+      p <- ggplot(dat, aes(x=measure, y=value, colour=factor(optimal))) +
+                  geom_point(size=5) +
+                  coord_flip() +
+                  ylab("Risk (%)") +
+                  scale_colour_manual(values=c("red", "green"),
+                                    name="Comparison",
+                                    breaks=c(0,1),
+                                    labels=c("You", "The ideal you"))
       print(p)
     })
   })
