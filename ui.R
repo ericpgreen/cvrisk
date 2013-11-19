@@ -1,11 +1,11 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# AMA CV Risk Calculator
+# AHA CV Risk Calculator
 # http://my.americanheart.org/professional/StatementsGuidelines/
 # PreventionGuidelines/Prevention-Guidelines_UCM_457698_SubHomePage.jsp
 # downloaded 2013-11-18 @ 21:45
 # @ericpgreen
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# This file is not intended to replace the AMA CV Risk Calculator or be used in 
+# This file is not intended to replace the AHA CV Risk Calculator or be used in 
 # a clincal context. The only purpose is to explore alternate forms of data
 # visualization.
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
