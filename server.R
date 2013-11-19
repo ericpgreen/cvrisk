@@ -54,12 +54,14 @@ library(ggplot2)
           mnxb.f.wh <- -29.1817
           mnxb.m.aa <- 19.5425
           mnxb.m.wh <- 61.1816
-          predict.f.aa <- 17.1141*lnage+0.9396*lntot+(-18.9196*lnhdl)+4.4748*agehdl+
-                          29.2907*trlnsbp+(-6.4321*agetsbp)+27.8197*ntlnsbp+
-                          (-6.0873*agentsbp)+0.6908*smoker+0.8738*diabetes
+          predict.f.aa <- 17.1141*lnage+0.9396*lntot+(-18.9196*lnhdl)+
+                          4.4748*agehdl+29.2907*trlnsbp+(-6.4321*agetsbp)+
+                          27.8197*ntlnsbp+(-6.0873*agentsbp)+0.6908*smoker+
+                          0.8738*diabetes
           predict.f.wh <- (-29.799*lnage)+4.884*age2+13.54*lntot+(-3.114*agetc)+
-                          (-13.578*lnhdl)+3.149*agehdl+2.019*trlnsbp+1.957*ntlnsbp+
-                          7.574*smoker+(-1.665*agesmoke)+0.661*diabetes
+                          (-13.578*lnhdl)+3.149*agehdl+2.019*trlnsbp+
+                          1.957*ntlnsbp+7.574*smoker+(-1.665*agesmoke)+
+                          0.661*diabetes
           predict.m.aa <- 2.469*lnage+0.302*lntot+(-0.307*lnhdl)+1.916*trlnsbp+
                           1.809*ntlnsbp+0.549*smoker+0.645*diabetes
           predict.m.wh <- 12.344*lnage+11.853*lntot+(-2.664*agetc)+(-7.99*lnhdl)+
@@ -102,8 +104,9 @@ library(ggplot2)
        
         # calculate
           predict.f.aa.o <- 17.1141*lnage.o+0.9396*lntot.o+(-18.9196*lnhdl.o)+
-                            4.4748*agehdl.o+29.2907*trlnsbp.o+(-6.4321*agetsbp.o)+
-                            27.8197*ntlnsbp.o+(-6.0873*agentsbp.o)+0.6908*smoker.o+
+                            4.4748*agehdl.o+29.2907*trlnsbp.o+
+                            (-6.4321*agetsbp.o)+27.8197*ntlnsbp.o+
+                            (-6.0873*agentsbp.o)+0.6908*smoker.o+
                             0.8738*diabetes.o
           predict.f.wh.o <- (-29.799*lnage.o)+4.884*age2.o+13.54*lntot.o+
                             (-3.114*agetc.o)+(-13.578*lnhdl.o)+3.149*agehdl.o+
@@ -214,10 +217,11 @@ library(ggplot2)
       })
 
   # plot ----
-    output$statinPlot <- renderPlot( {
+    output$riskPlot <- renderPlot( {
       plotdf <- Data()$dat
-      ggplot(plotdf, aes(x=measure, y=value, colour=optimal)) +
-             geom_point(aes(color=measure), size=3) +
-             coord_flip()
+      p <- ggplot(plotdf, aes(x=measure, y=value, colour=optimal)) +
+                  geom_point(aes(color=measure), size=3) +
+                  coord_flip()
+      print(p)
     })
   })

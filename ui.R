@@ -58,6 +58,6 @@ library(shiny)
     
     # plot
       mainPanel(
-        plotOutput("statinPlot")
+        plotOutput("riskPlot")
       )
   ))
